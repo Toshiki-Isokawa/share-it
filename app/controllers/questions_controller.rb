@@ -1,11 +1,16 @@
 class QuestionsController < ApplicationController
     before_action :require_user_logged_in
-    before_action :correct_user, only: [:destroy]
+    before_action :correct_user, only: [:show, :edit, :update, :destroy]
     
     def index
     end
     
     def show
+        @questions = current_user.questions.order(id: :desc).page(params[:page])
+    end
+    
+    def new
+        @question = current_user.questions.build  # form_with 用
     end
     
     def create
@@ -24,6 +29,13 @@ class QuestionsController < ApplicationController
     end
     
     def update
+        if @question.update(question_params)
+            flash[:success] = '正常に更新されました'
+            redirect_to @question
+        else
+            flash.now[:danger] = '質問 は更新されませんでした'
+            render :edit
+        end
     end
     
     def destroy

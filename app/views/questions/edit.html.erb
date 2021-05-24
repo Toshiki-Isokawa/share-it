@@ -1,0 +1,11 @@
+<h1>id: <%= @question.id %> の編集ページ</h1>
+<div class="col-sm-10">
+    <%= form_with(model: @question, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :title, class: 'form-control', rows: 1 %>
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+        <%= link_to '一覧に戻る', root_url %>
+     <% end %>
+</div>
