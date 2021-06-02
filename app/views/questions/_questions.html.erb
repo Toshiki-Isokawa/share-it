@@ -1,16 +1,13 @@
 <ul class="list-unstyled">
   <% questions.each do |question| %>
     <li class="media mb-3">
-      <img class="mr-2 rounded" src="<%= gravatar_url(question.user, { size: 50 }) %>" alt="">
+      <img class="mr-2 rounded" src="<%= gravatar_url(question.user, { size: 100 }) %>" alt="">
       <div class="media-body">
         <div>
-          <%= link_to question.user.name, user_path(question.user) %> <span class="text-muted">posted at <%= question.created_at %></span>
+          <h1><%= link_to question.user.name, user_path(question.user) %></h1> <span class="text-muted">posted at <%= question.created_at %></span>
         </div>
         <div>
-          <p class="mb-0"><%= question.title %></p>
-        </div>
-        <div>
-          <p class="mb-0"><%= question.content %></p>
+          <h2 class="mb-0"><%= link_to question.title, question_path(question.id) %></h2>
         </div>
         <div>
           <% if current_user == question.user %>

@@ -1,5 +1,6 @@
 <% if logged_in? %>
   <div class="col-sm-12">
+    <h3>Followしているユーザの質問を表示↓</h3>
     <%= render 'questions/questions', questions: @questions %>
   </div>
 <% else %>
@@ -8,5 +9,9 @@
       <h1>Welcome</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
+  </div>
+  <div class="col-sm-12">
+    <h3>質問一覧</h3>
+    <%= render 'questions/questions', questions: @question %>
   </div>
 <% end %>

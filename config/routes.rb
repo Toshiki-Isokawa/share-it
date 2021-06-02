@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   end
   
   resources :questions
+  resources :answers, only: [:create, :destroy]
+  
   resources :relationships, only: [:create, :destroy]
 end
