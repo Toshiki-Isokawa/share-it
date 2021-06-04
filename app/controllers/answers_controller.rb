@@ -10,8 +10,9 @@ class AnswersController < ApplicationController
             flash[:success] = '回答を投稿しました。'
             redirect_to question_path(@question)
         else
+            @answers = @question.answers
             flash[:danger] = '回答の投稿に失敗しました。'
-            redirect_to question_path(@question)
+            render "questions/show"
         end
     end
     

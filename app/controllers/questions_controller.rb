@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
     
     def show
         @question = Question.find(params[:id])
+        @answer = Answer.new
         @answers = @question.answers
     end
     
@@ -22,7 +23,7 @@ class QuestionsController < ApplicationController
         else
             @questions = current_user.feed_questions.order(id: :desc).page(params[:page])
             flash[:danger] = '質問の投稿に失敗しました。'
-             render 'toppages/index'
+            render 'new'
         end
     end
     
