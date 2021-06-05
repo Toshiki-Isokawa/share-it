@@ -17,13 +17,14 @@ class AnswersController < ApplicationController
     end
     
     def destroy
+        @question = Question.find(params[:question_id])
         @answer = current_user.answers.find_by(id: params[:id])
         unless @answer
             redirect_to root_url
         end
         @answer.destroy
         flash[:success] = '回答を削除しました。'
-        redirect_back(fallback_location: root_path)
+        redirect_to @question
     end
     
     private 
