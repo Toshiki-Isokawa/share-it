@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
         @question = current_user.questions.build(question_params)
         if @question.save
             flash[:success] = '質問を投稿しました。'
-            redirect_to root_url
+            redirect_to user_path(current_user.id)
         else
             @questions = current_user.feed_questions.order(id: :desc).page(params[:page])
             flash[:danger] = '質問の投稿に失敗しました。'
@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
     def destroy
         @question.destroy
         flash[:success] = '質問を削除しました。'
-        redirect_to root_url
+        redirect_to user_path(current_user.id)
     end
     
     private

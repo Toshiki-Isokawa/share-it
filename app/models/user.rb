@@ -30,6 +30,6 @@ class User < ApplicationRecord
     end
     
     def feed_questions
-        Question.where(user_id: self.following_ids + [self.id])
+        Question.where(user_id: self.following_ids)
     end
 end

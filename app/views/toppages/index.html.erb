@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="col-sm-12">
-    <h3>Followしているユーザと自分の質問を表示↓</h3>
+    <h3>Followしているユーザの質問を表示↓</h3>
     <%= render 'questions/questions', questions: @questions %>
   </div>
 <% else %>
