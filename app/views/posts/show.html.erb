@@ -1,0 +1,22 @@
+<div class="media mb-3">
+     <img class="mr-2 rounded" src="<%= gravatar_url(@post.user, { size: 100 }) %>" alt="">
+     <div class="media-body">
+        <div>
+          <h1><%= link_to @post.user.name, user_path(@post.user) %> </h1><span class="text-muted">posted at <%= @post.created_at %></span>
+        </div>
+        <div>
+          <%= image_tag @post.image.url %>
+        </div>
+        <br>
+        <div>
+          <h2 class="mb-0"><%= @post.caption %></h2>
+        </div>
+        <br>
+        <div>
+          <% if current_user == @post.user %>
+            <%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </div>
+    </div>
+</div>
+
