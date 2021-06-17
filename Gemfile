@@ -57,4 +57,5 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'cloudinary'
