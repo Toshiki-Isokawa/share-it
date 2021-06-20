@@ -9,7 +9,7 @@
         </div>
         <br>
         <div style="color: #000000; border: solid 3px #000000; padding: 0.5em; border-radius: 0.5em;">
-          <h2 class="mb-0"><%= @question.content %></h2>
+          <h2 class="mb-0"><%= safe_join(@question.content.split("\n"), tag(:br)) %></h2>
         </div>
         <br>
         <div>
@@ -42,7 +42,7 @@
                     <%= link_to answer.user.name, user_path(answer.user) %> <span class="text-muted">posted at <%= answer.created_at %></span>
                   </div>
                   <div>
-                    <p class="mb-0"><%= answer.content %></p>
+                    <p class="mb-0"><%= safe_join(answer.content.split("\n"), tag(:br)) %></p>
                   </div>
                   <div>
                     <% if current_user == answer.user %>

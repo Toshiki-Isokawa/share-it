@@ -9,7 +9,7 @@
         </div>
         <br>
         <div>
-          <h2 class="mb-0"><%= @post.caption %></h2>
+          <h2 class="mb-0"><%= safe_join(@post.caption.split("\n"), tag(:br)) %></h2>
         </div>
         <br>
         <div>

@@ -4,10 +4,16 @@
     <%= form_with(model: @question, local: true) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
-          <%= f.text_area :title, :placeholder =>"質問のタイトル",class: 'form-control', rows: 1 %>
-          <%= f.text_area :content, class: 'form-control',:placeholder =>"質問の内容", rows: 5 %>
+            <div class="mt-1">
+              <%= f.text_area :title, :placeholder =>"質問のタイトル",class: 'form-control', rows: 1 %>
+            </div>
+            <div class="mt-1">
+              <%= f.text_area :content, class: 'form-control',:placeholder =>"質問の内容", rows: 5 %>
+            </div>
+            <div class="mt-1">
+                <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+                <%= link_to '一覧に戻る', root_url %>
+            </div>
         </div>
-        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
-        <%= link_to '一覧に戻る', root_url %>
      <% end %>
 </div>
