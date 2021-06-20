@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     
     if @post.save 
       flash[:success] = 'Blogを投稿しました。'
-      redirect_to user_path(current_user.id)
+      redirect_to blogs_user_path(current_user.id)
     else
       flash[:danger] = 'Blogの投稿に失敗しました。'
       render 'new'
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id])
     @post.destroy
     flash[:success] = 'Blogを削除しました。'
-    redirect_to user_path(current_user.id)
+    redirect_to blogs_user_path(current_user.id)
   end
   
   private 
