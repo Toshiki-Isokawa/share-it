@@ -7,7 +7,7 @@
           <h1><%= link_to post.user.name, user_path(post.user) %></h1> <span class="text-muted">posted at <%= post.created_at %></span>
         </div>
         <div>
-          <h2 class="mb-0"><%= link_to (image_tag post.image.url), post_path(post.id) %></h2>
+          <h2 class="mb-0"><%= link_to (image_tag post.image.url, :width =>'400', :height =>'auto'), post_path(post.id) %></h2>
         </div>
       </div>
     </li>

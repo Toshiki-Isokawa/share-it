@@ -4,7 +4,7 @@
         <div>
           <h1><%= link_to @post.user.name, user_path(@post.user) %> </h1><span class="text-muted">posted at <%= @post.created_at %></span>
         </div>
-        <div>
+        <div id = "class">
           <%= image_tag @post.image.url %>
         </div>
         <br>
@@ -17,6 +17,7 @@
             <%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
         </div>
+        <div class="mt-5"><%= link_to "戻る", blogs_user_path(@user) %></div>
     </div>
 </div>
 
